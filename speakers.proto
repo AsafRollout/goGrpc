@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+option go_package = "./speakers";
+
+package speakers;
+
+message Audio {
+    string body = 1;
+}
+
+service AudioOutput {
+    rpc Play(Audio) returns (Audio) {}
+}
