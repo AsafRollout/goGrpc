@@ -1,6 +1,6 @@
 {
 	"metadata": {
-		"version": 1
+		"version": 2
 	},
 	"application": {
 		"name": "test",
@@ -55,12 +55,6 @@
 								"properties": null
 							},
 							{
-								"name": "Unit Tests",
-								"definition": "Unit Tests",
-								"command": "set -o pipefail\nginkgo -cover -r -v -skipPackage=pb,test,mock,proto -outputdir=./ | tee ginkgo.output",
-								"properties": null
-							},
-							{
 								"name": "Convert coverage",
 								"definition": "Convert coverage",
 								"command": "cat ginkgo.output 2\u003e\u00261 | go-junit-report \u003e test.xml\ngocov convert *.coverprofile | gocov-xml \u003e coverage.xml",
@@ -87,13 +81,7 @@
 		"exit_actions": {},
 		"default_properties": [],
 		"deployment_files": [],
-		"application_init": {},
-		"releases": [
-			{
-				"name": "consul",
-				"version": "latest"
-			}
-		]
+		"application_init": {}
 	},
 	"organization": {
 		"orgname": "CloudBees"
