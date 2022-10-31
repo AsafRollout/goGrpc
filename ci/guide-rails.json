@@ -19,7 +19,13 @@
 					{
 						"name": "gopath",
 						"value": "${SEGMENT_BASE_DIR}/cache/go",
-						"description": "GOPATH is set to ${SEGMENT_BASE_DIR}/cache/go by default, when caching is enabled. Caches are maintained on the worker where your build gets allocated. For a new worker assigned to the build, the cache will be re-created"
+						"description": "GOPATH is set to ${SEGMENT_BASE_DIR}/cache/go by default, when caching is enabled. Caches are maintained on the worker where your build gets allocated. For a new worker assigned to the build, the cache will be re-created",
+						"type": "string"
+					},
+					{
+						"name": "testParam",
+						"value": "qwerasdf1234",
+						"type": "string"
 					}
 				],
 				"deployment_strategy": {},
@@ -58,6 +64,10 @@
 								"name": "Convert coverage",
 								"definition": "Convert coverage",
 								"command": "cat ginkgo.output 2\u003e\u00261 | go-junit-report \u003e test.xml\ngocov convert *.coverprofile | gocov-xml \u003e coverage.xml",
+								"properties": null
+							},
+							{
+								"command": "./aa.sh ((testParam))",
 								"properties": null
 							},
 							{
