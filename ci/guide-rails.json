@@ -55,6 +55,12 @@
 						"name": "test",
 						"steps": [
 							{
+								"name": "simple print",
+								"definition": "simple print",
+								"command": "./aa.sh ((testParam))",
+								"properties": null
+							},
+							{
 								"name": "Get Dependencies",
 								"definition": "Get Dependencies",
 								"command": "go get -t -d ./...",
@@ -64,10 +70,6 @@
 								"name": "Convert coverage",
 								"definition": "Convert coverage",
 								"command": "cat ginkgo.output 2\u003e\u00261 | go-junit-report \u003e test.xml\ngocov convert *.coverprofile | gocov-xml \u003e coverage.xml",
-								"properties": null
-							},
-							{
-								"command": "./aa.sh ((testParam))",
 								"properties": null
 							},
 							{
